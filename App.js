@@ -18,6 +18,7 @@ import Profile from './screens/Profile';
 import Home from './screens/Home';
 import { useContext } from 'react';
 import Context from './context/Context';
+import Contacts from './screens/Contacts';
 
 LogBox.ignoreLogs([
   'Setting a timer',
@@ -77,6 +78,11 @@ function App() {
             name="home"
             component={Home}
             options={{ title: 'Whatsapp' }}
+          />
+          <Stack.Screen
+            name="contacts"
+            component={Contacts}
+            options={{ title: 'Meus Contatos' }}
           />
         </Stack.Navigator>
       )}
