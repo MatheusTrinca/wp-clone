@@ -1,14 +1,14 @@
 import { View, Text } from 'react-native';
 import React, { useContext, useEffect } from 'react';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import Context from '../context/Context';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
-import ContactsFloatingIncon from '../components/ContactsFloatingIncon';
+import ContactsFloatingIcon from '../components/ContactsFloatingIcon';
 
 const Chats = () => {
   const { currentUser } = auth;
 
-  const [rooms, setRooms] = useContext(Context);
+  const { rooms, setRooms } = useContext(Context);
 
   const chatsQuery = query(
     collection(db, 'rooms'),
@@ -34,7 +34,7 @@ const Chats = () => {
   return (
     <View style={{ flex: 1, padding: 5, paddingRight: 10 }}>
       <Text>Chats</Text>
-      <ContactsFloatingIncon />
+      <ContactsFloatingIcon />
     </View>
   );
 };

@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Context from '../context/Context';
 import { useNavigation } from '@react-navigation/native';
 
-const ContactsFloatingIncon = () => {
+const ContactsFloatingIcon = () => {
   const {
     theme: { colors },
   } = useContext(Context);
@@ -36,4 +36,4 @@ const ContactsFloatingIncon = () => {
   );
 };
 
-export default ContactsFloatingIncon;
+export default ContactsFloatingIcon;
