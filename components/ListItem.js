@@ -15,7 +15,7 @@ const ListItem = ({ type, description, user, style, time, room, image }) => {
   return (
     <TouchableOpacity
       style={{ height: 80, ...style }}
-      onPress={() => navigation.navigate('chat', { user, room, image })}
+      onPress={() => navigation.navigate('chats', { user, room, image })}
     >
       <Grid style={{ maxHeight: 80 }}>
         <Col
@@ -26,9 +26,27 @@ const ListItem = ({ type, description, user, style, time, room, image }) => {
         <Col style={{ marginLeft: 10 }}>
           <Row style={{ alignItems: 'center' }}>
             <Col>
-              <Text>{user.contactName || user.displayName}</Text>
+              <Text
+                style={{ fontWeight: 'bold', fontSize: 16, color: colors.text }}
+              >
+                {user.contactName || user.displayName}
+              </Text>
             </Col>
+            {time && (
+              <Col style={{ alignItems: 'flex-end' }}>
+                <Text style={{ color: colors.secondaryText, fontSize: 11 }}>
+                  {new Date(time.seconds * 1000).toLocaleDateString()}
+                </Text>
+              </Col>
+            )}
           </Row>
+          {description && (
+            <Row style={{ marginTop: -5 }}>
+              <Text style={{ color: colors.secondaryText, fontSize: 13 }}>
+                {description}
+              </Text>
+            </Row>
+          )}
         </Col>
       </Grid>
     </TouchableOpacity>
